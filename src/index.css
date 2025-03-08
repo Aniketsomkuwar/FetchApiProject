@@ -1,0 +1,137 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+}
+
+.navItems > ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding-right: 30px;
+}
+.navItems > ul > li {
+  font-size: 20px;
+  font-weight: 900;
+  color: chocolate;
+  padding: 10px;
+}
+
+.search-container {
+  border: 2px solid black;
+  /* margin: 2px; */
+  padding: 2px;
+  margin: 20px 0;
+  display: flex;
+}
+
+#search-box {
+  width: 100%;
+  border: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px; /* Adjust width as needed */
+  margin: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-logo {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensure no extra space below image */
+  object-fit: cover; /* Prevents image distortion */
+}
+
+.res-name {
+  padding: 10px;
+}
+
+.res-name h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+.star {
+  display: flex;
+}
+
+.res-star {
+  padding: 0 10px 10px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Optional: Add a grid layout if you have multiple cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*Optional: make the star look like a star*/
+.res-star::before {
+  content: "★ ";
+  color: orange;
+  font-size: 15px;
+}
+
+.filter-btn {
+  padding: 10px;
+  border: 2px solid orange;
+  background-color: orange;
+  width: 20%;
+  margin: 20px;
+}
+
+.Shimmer-Container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-cards {
+  background: linear-gradient(to right, #f0f0f0, #e0e0e0, #f0f0f0);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 8px; /* Optional: Rounded corners */
+  position: relative;
+  overflow: hidden; /*Needed to hide the text while shimmering*/
+
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px; /* Adjust width as needed */
+  margin: 10px;
+  height: 300px;
+}
+
+button {
+  background-color: orange;
+  border-radius: 5px;
+  font-size: 15px;
+
+  padding: 10px;
+  cursor: pointer;
+}
