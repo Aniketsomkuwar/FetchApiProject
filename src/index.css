@@ -1,13 +1,22 @@
+/* ===========================
+   Header Section
+   =========================== */
+
 .header {
   display: flex;
   justify-content: space-between;
-  border: 2px solid black;
   align-items: center;
+  border: 2px solid black;
 }
 
+/* Logo styling */
 .logo {
   width: 100px;
 }
+
+/* ===========================
+     Navigation Bar
+     =========================== */
 
 .navItems > ul {
   display: flex;
@@ -15,6 +24,7 @@
   list-style: none;
   padding-right: 30px;
 }
+
 .navItems > ul > li {
   font-size: 20px;
   font-weight: 900;
@@ -22,18 +32,54 @@
   padding: 10px;
 }
 
+/* ===========================
+     Improved Search Bar
+     =========================== */
+
 .search-container {
-  border: 2px solid black;
-  /* margin: 2px; */
-  padding: 2px;
-  margin: 20px 0;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+  width: 50%;
+  background: white;
+  border-radius: 25px;
+  padding: 8px 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Search Box Styling */
 #search-box {
   width: 100%;
   border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 20px;
 }
+
+/* Search Button */
+.search-btn {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect for Search Button */
+.search-btn:hover {
+  background-color: #e64a19;
+  transform: scale(1.05);
+}
+
+/* ===========================
+     Restaurant Card
+     =========================== */
 
 .card {
   display: flex;
@@ -41,51 +87,69 @@
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 200px; /* Adjust width as needed */
-  margin: 10px;
+  width: 200px; /* Adjust card width */
   transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Hover effect for cards */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
+
+/* Card content styling */
 .card-data {
-  padding: 20px;
+  padding: 10px;
 }
+
+/* Image container inside the card */
 .card-img {
   width: 100%;
   overflow: hidden;
 }
 
+/* Card image styling */
 .card-logo {
   width: 100%;
   height: auto;
-  display: block; /* Ensure no extra space below image */
+  display: block; /* Ensures no extra space below the image */
   object-fit: cover; /* Prevents image distortion */
 }
 
+/* Restaurant Name */
 .res-name {
   font-size: 20px;
   font-weight: bold;
   color: #333;
   margin-bottom: 8px;
 }
+
+/* Additional text inside the card */
 .card h4 {
   font-size: 16px;
   color: #555;
   margin: 4px 0;
 }
+
+/* Star ratings inside the card */
 .star {
   display: flex;
 }
 
-/* Optional: Add a grid layout if you have multiple cards */
+/* ===========================
+     Grid Layout for Cards
+     =========================== */
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
+
+/* ===========================
+     Filter Button
+     =========================== */
 
 .filter-btn {
   padding: 10px;
@@ -95,27 +159,34 @@
   margin: 20px;
 }
 
+/* ===========================
+     Shimmer Effect (Loading Placeholder)
+     =========================== */
+
 .Shimmer-Container {
   display: flex;
   flex-wrap: wrap;
 }
 
+/* Shimmer card effect */
 .shimmer-cards {
   background: linear-gradient(to right, #f0f0f0, #e0e0e0, #f0f0f0);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite linear;
   border-radius: 8px; /* Optional: Rounded corners */
   position: relative;
-  overflow: hidden; /*Needed to hide the text while shimmering*/
+  overflow: hidden; /* Needed to hide the text while shimmering */
 
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 200px; /* Adjust width as needed */
-  margin: 10px;
   height: 300px;
+  margin: 10px;
 }
+
+/* ===========================
+     Buttons
+     =========================== */
 
 button {
   background-color: orange;
@@ -126,6 +197,7 @@ button {
   transition: all 0.3s ease-in-out;
 }
 
+/* Button hover effect */
 button:hover {
   background-color: darkorange;
   transform: scale(1.05);
