@@ -51,7 +51,9 @@
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
-
+.card-data {
+  padding: 20px;
+}
 .card-img {
   width: 100%;
   overflow: hidden;
@@ -65,36 +67,24 @@
 }
 
 .res-name {
-  padding: 10px;
-}
-
-.res-name h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: bold;
   color: #333;
+  margin-bottom: 8px;
+}
+.card h4 {
+  font-size: 16px;
+  color: #555;
+  margin: 4px 0;
 }
 .star {
   display: flex;
-}
-
-.res-star {
-  padding: 0 10px 10px;
-  color: #888;
-  font-size: 0.9rem;
 }
 
 /* Optional: Add a grid layout if you have multiple cards */
 .card-container {
   display: flex;
   flex-wrap: wrap;
-}
-
-/*Optional: make the star look like a star*/
-.res-star::before {
-  content: "★ ";
-  color: orange;
-  font-size: 15px;
 }
 
 .filter-btn {
@@ -131,7 +121,12 @@ button {
   background-color: orange;
   border-radius: 5px;
   font-size: 15px;
-
   padding: 10px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: darkorange;
+  transform: scale(1.05);
 }
