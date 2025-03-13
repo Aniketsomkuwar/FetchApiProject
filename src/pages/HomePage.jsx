@@ -1,8 +1,8 @@
-import RestaurantCard, { withOpenLabel } from "./RestaurantCard";
+import RestaurantCard, { withOpenLabel } from "../components/RestaurantCard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
+import Shimmer from "../components/Shimmer";
 import { Link } from "react-router-dom";
-const Body = () => {
+const HomePage = () => {
     // Local State Variable - Super powerful variable
     const [listOfRestaurants, setListOfRestaurant] = useState([]);
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
@@ -82,4 +82,4 @@ const Body = () => {
     );
 };
 
-export default Body;
+export default HomePage;

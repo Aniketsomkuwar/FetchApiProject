@@ -7,7 +7,7 @@ import AboutUs from './pages/AboutUs.jsx'
 import App from './App.jsx'
 import ContactUs from './pages/ContactUs.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
-import Body from './components/Body.jsx'
+import HomePage from './pages/HomePage.jsx'
 import Cart from "./pages/CartPage.jsx"
 import RestaurantMenu from './pages/RestaurantMenu.jsx'
 
@@ -18,7 +18,7 @@ const appRouter = createBrowserRouter([
     element: <App />,
     children: [{
       path: "/",
-      element: <Body />
+      element: <HomePage />
     },
     {
       path: "/about",
