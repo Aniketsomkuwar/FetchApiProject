@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withOpenLabel } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -8,11 +8,8 @@ const Body = () => {
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [searchText, setSearchText] = useState("");
 
-
     useEffect(() => {
         fetchData();
-
-
     }, []);
 
     const fetchData = async () => {
@@ -29,50 +26,59 @@ const Body = () => {
         setFilteredRestaurant(
             json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         );
-
     };
 
-    return (<div className="body-container">
-        <div className="search-container">
+    const RestaurantCardOpen = withOpenLabel(RestaurantCard);
 
-            <input
-                type="text"
-                id="search-box"
-                value={searchText}
-                onChange={(e) => {
-                    setSearchText(e.target.value);
-                }}
-            />
-            <button id="search-btn"
-                onClick={() => {
-                    // Filter the restraunt cards and update the UI
+    return (
+        <div className="p-4">
+            <div className="flex space-x-2 mb-4">
+                <input
+                    type="text"
+                    className="border border-gray-300 rounded p-2 flex-grow"
+                    value={searchText}
+                    onChange={(e) => {
+                        setSearchText(e.target.value);
+                    }}
+                />
+                <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => {
+                        const filteredRestaurant = listOfRestaurants.filter((res) =>
+                            res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                        );
+                        setFilteredRestaurant(filteredRestaurant);
+                    }}
+                >
+                    Search
+                </button>
+            </div>
 
-
-                    const filteredRestaurant = listOfRestaurants.filter((res) =>
-                        res.info.name.toLowerCase().includes(searchText.toLowerCase())
-                    );
-
-                    setFilteredRestaurant(filteredRestaurant);
-                }}
-            >
-                Search
-            </button>
-
-
+            {listOfRestaurants.length === 0 ? (
+                <Shimmer />
+            ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {filteredRestaurant.length === 0 ? (
+                        <h1 className="text-center text-lg font-semibold text-gray-600">
+                            No Result Found
+                        </h1>
+                    ) : (
+                        filteredRestaurant.map((restaurant) => (
+                            <Link
+                                key={restaurant.info.id}
+                                to={"/restaurant/" + restaurant.info.id}
+                            >
+                                {restaurant.info.sla.deliveryTime <= 35 ? (
+                                    <RestaurantCardOpen resData={restaurant} />
+                                ) : (
+                                    <RestaurantCard resData={restaurant} />
+                                )}
+                            </Link>
+                        ))
+                    )}
+                </div>
+            )}
         </div>
-
-        {listOfRestaurants.length === 0 ? (
-            <Shimmer />) :
-            <div className="card-container">
-                {filteredRestaurant.length === 0 ? (
-                    <h1 className="not-found">No Result Found</h1>
-                ) : (
-                    filteredRestaurant.map((restaurant) => (
-                        <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
-                    ))
-                )}
-            </div>}
-    </div>
     );
 };
 

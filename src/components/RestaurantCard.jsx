@@ -7,24 +7,37 @@ const RestaurantCard = (props) => {
 
 
     return (
-        <div className="card" style={{ backgroundColor: "#f0f0f0" }}>
-            <div className="card-img">
+        <div className="bg-gray-100 rounded-lg shadow-md p-4 h-full">
+            <div className="mb-4">
                 <img
-                    className="card-logo"
+                    className="w-full h-40 object-cover rounded-md"
                     alt="res-logo"
                     src={CDN_URL + cloudinaryImageId}
                 />
             </div>
-            <div className="card-data">
-                <h3 className="res-name">{name}</h3>
-                <h4>{cuisines.join(", ")}</h4>
-                <h4>{avgRating} stars</h4>
-                <h4>{costForTwo}</h4>
-                <h4>{sla?.slaString}</h4>
-                <h4>Address : {locality}</h4>
+            <div>
+                <h3 className="text-xl font-semibold mb-2">{name}</h3>
+                <h4 className="text-gray-600 mb-1">{cuisines.join(", ")}</h4>
+                <h4 className="text-yellow-500 mb-1">{avgRating} stars</h4>
+                <h4 className="text-gray-600 mb-1">{costForTwo}</h4>
+                <h4 className="text-gray-600 mb-1">{sla?.slaString}</h4>
+                <h4 className="text-gray-600">Address: {locality}</h4>
             </div>
         </div>
     );
 };
+
+export const withOpenLabel = (RestaurantCard) => {
+
+
+    return (props) => {
+        return (
+            <div>
+                <label className="absolute bg-gray-600 rounded text-white ms-0 mt-0 m-2 p-1">Delivery : 35 Min</label>
+                <RestaurantCard {...props} />
+            </div>
+        )
+    }
+}
 
 export default RestaurantCard;
