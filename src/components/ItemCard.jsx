@@ -1,7 +1,14 @@
+import { useDispatch } from "react-redux";
+
+import { addItem } from "../features/cartSlice";
 
 
 const ItemCard = ({ item }) => {
 
+    const dispatch = useDispatch();
+    const handleAddItem = () => {
+        dispatch(addItem(item?.card?.info));
+    }
     return (
         <div
             key={item?.card?.info?.id}
@@ -19,7 +26,7 @@ const ItemCard = ({ item }) => {
                 </div>
                 <div className="flex flex-col items-end">
                     {item?.card?.info?.isVeg ? '🟢' : '🔴'}
-                    <div className=" bg-white border-red-500 border-2 rounded p-2 px-5 font-bold  mt-8 text-red-500 hover:bg-red-400 hover:text-white">Add </div>
+                    <div className=" bg-white border-red-500 border-2 rounded p-2 px-5 font-bold  mt-8 text-red-500 hover:bg-red-400 hover:text-white" onClick={() => handleAddItem()}>Add </div>
                 </div>
             </div>
 

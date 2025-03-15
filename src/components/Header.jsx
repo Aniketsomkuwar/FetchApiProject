@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import UserContext from "../utils/UserContext"
 
+import { useSelector } from "react-redux";
 const Header = () => {
     const [text, setText] = useState("Login");
 
@@ -9,6 +11,11 @@ const Header = () => {
         text === "Login" ? setText("Logout") : setText("Login");
 
     }
+
+
+    // React Redux
+    const cart = useSelector((store) => store.cart.items);
+
 
 
 
@@ -36,7 +43,7 @@ const Header = () => {
                     </li>
                     <li>
                         <Link to="/cart" className="text-gray-800 hover:text-gray-600">
-                            Cart
+                            Cart ({cart.length})
                         </Link>
                     </li>
                     <li>
@@ -44,7 +51,7 @@ const Header = () => {
                             onClick={() => btnChange()}
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                         >
-                            {text}
+                            {"logout"}
                         </button>
                     </li>
                 </ul>

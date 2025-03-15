@@ -2,7 +2,7 @@ import RestaurantCard, { withOpenLabel } from "../components/RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "../components/Shimmer";
 import { Link } from "react-router-dom";
-const HomePage = () => {
+const Body = () => {
     // Local State Variable - Super powerful variable
     const [listOfRestaurants, setListOfRestaurant] = useState([]);
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
@@ -57,7 +57,7 @@ const HomePage = () => {
             {listOfRestaurants.length === 0 ? (
                 <Shimmer />
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-4">
                     {filteredRestaurant.length === 0 ? (
                         <h1 className="text-center text-lg font-semibold text-gray-600">
                             No Result Found
@@ -82,4 +82,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default Body;
